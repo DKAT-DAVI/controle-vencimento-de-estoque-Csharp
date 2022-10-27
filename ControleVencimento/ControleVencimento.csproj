@@ -54,11 +54,35 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="JanelaVencimento.cs">
+    <Compile Include="JanelaNovoLote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JanelaVencimento.Designer.cs">
-      <DependentUpon>JanelaVencimento.cs</DependentUpon>
+    <Compile Include="JanelaNovoLote.Designer.cs">
+      <DependentUpon>JanelaNovoLote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JanelaVencer1Dia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JanelaVencer1Dia.Designer.cs">
+      <DependentUpon>JanelaVencer1Dia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JanelaVencer5Dias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JanelaVencer5Dias.Designer.cs">
+      <DependentUpon>JanelaVencer5Dias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JanelaVencimentoPersonalizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JanelaVencimentoPersonalizado.Designer.cs">
+      <DependentUpon>JanelaVencimentoPersonalizado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TodosLotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TodosLotes.Designer.cs">
+      <DependentUpon>TodosLotes.cs</DependentUpon>
     </Compile>
     <Compile Include="Produto.cs" />
     <Compile Include="Program.cs" />
@@ -66,8 +90,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JanelaVencimento.resx">
-      <DependentUpon>JanelaVencimento.cs</DependentUpon>
+    <EmbeddedResource Include="JanelaNovoLote.resx">
+      <DependentUpon>JanelaNovoLote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JanelaVencer1Dia.resx">
+      <DependentUpon>JanelaVencer1Dia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JanelaVencer5Dias.resx">
+      <DependentUpon>JanelaVencer5Dias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JanelaVencimentoPersonalizado.resx">
+      <DependentUpon>JanelaVencimentoPersonalizado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TodosLotes.resx">
+      <DependentUpon>TodosLotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

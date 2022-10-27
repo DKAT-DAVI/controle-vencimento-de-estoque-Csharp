@@ -16,6 +16,7 @@ namespace ControleVencimento
         private Form1()
         {
             InitializeComponent();
+            new BancoDados();
         }
 
         public static Form1 GetInstance()
@@ -35,7 +36,7 @@ namespace ControleVencimento
 
         private void mnuRelatorioTodosLotes_Click(object sender, EventArgs e)
         {
-            JanelaVencimento j = JanelaVencimento.GetInstance();
+            TodosLotes j = TodosLotes.GetInstance();
 
             if (j.MdiParent == null)
             {
@@ -53,7 +54,7 @@ namespace ControleVencimento
 
         private void mnuRelatorioVencer1Dia_Click(object sender, EventArgs e)
         {
-            JanelaVencimento j = JanelaVencimento.GetInstance();
+            JanelaVencer1Dia j = JanelaVencer1Dia.GetInstance();
 
             if (j.MdiParent == null)
             {
@@ -69,16 +70,50 @@ namespace ControleVencimento
             j.Activate();
         }
 
-        private void mnuRelatorioVencer2Dia_Click(object sender, EventArgs e)
+        private void mnuRelatorioVencer5Dias_Click(object sender, EventArgs e)
         {
-            JanelaVencimento j = JanelaVencimento.GetInstance();
+            JanelaVencer5Dias j = JanelaVencer5Dias.GetInstance();
 
             if (j.MdiParent == null)
             {
                 j.MdiParent = this;
                 j.Show();
-                
-                
+            }
+
+            else
+            {
+                j.WindowState = FormWindowState.Normal;
+            }
+
+            j.Activate();
+        }
+
+        private void mnuRelatorioVencerPersonalizado_Click(object sender, EventArgs e)
+        {
+            JanelaVencimentoPersonalizado j = JanelaVencimentoPersonalizado.GetInstance();
+
+            if (j.MdiParent == null)
+            {
+                j.MdiParent = this;
+                j.Show();
+            }
+
+            else
+            {
+                j.WindowState = FormWindowState.Normal;
+            }
+
+            j.Activate();
+        }
+
+        private void mnuCadastroNovoLote_Click(object sender, EventArgs e)
+        {
+            JanelaNovoLote j = JanelaNovoLote.GetInstance();
+
+            if (j.MdiParent == null)
+            {
+                j.MdiParent = this;
+                j.Show();
             }
 
             else

@@ -10,24 +10,25 @@ namespace ControleVencimento
     {
         //Propriedades
         public Int64 Lote { get; set; }
+        public Produto Produto { get; set; }
         public Int16 Quantidade { get; set; }
         public DateTime DataCompra { get; set; }
         public DateTime DataVencimento { get; set; }
-        public Produto Produtos { get; set; }
 
-        //Métodos
+        // Métodos
         public Decimal CalcularTotal()
         {
-            return Quantidade * Produtos.Preco;
+            return Quantidade * Produto.Preco;
         }
 
-        public Compra(Int64 lote, Int16 quantidade, DateTime dataCompra, DateTime dataVencimento, Produto produtos)
+        // Construtores
+        public Compra(Int64 lote, Produto produto, Int16 quantidade, DateTime dataCompra, DateTime dataVencimento)
         {
-            Lote = lote;
+            Lote = lote * 100;
             Quantidade = quantidade;
             DataCompra = dataCompra;
             DataVencimento = dataVencimento;
-            Produtos = produtos;
+            Produto = produto;
         }
     }
 }

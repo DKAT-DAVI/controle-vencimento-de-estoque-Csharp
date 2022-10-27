@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestaoPedidos
+namespace ControleVencimento
 {
     internal class Produto
     {
@@ -20,7 +20,7 @@ namespace GestaoPedidos
                 return _nome;
             }
 
-            // Se o _nome for maior que 45 caracteres o _nome vai receber somente os 32 primeiros caracteres
+            // Se o _nome for maior que 45 caracteres o _nome vai receber somente os 45 primeiros caracteres
             set
             {
                 if (value.Length > 45)
@@ -33,6 +33,15 @@ namespace GestaoPedidos
                     _nome = value;
                 }
             }
+        }
+
+        public Produto() { }
+
+        public Produto(Int64 codigo, String nome, Decimal preco)
+        {
+            Codigo = codigo;
+            Nome = nome;
+            Preco = preco;
         }
 
         public override string ToString()
