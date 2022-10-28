@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlNovoLote = new System.Windows.Forms.Panel();
+            this.dtpDataVencimento = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lstNovosLotes = new System.Windows.Forms.ListBox();
+            this.lblNovoLote = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -41,12 +45,6 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblProduto = new System.Windows.Forms.Label();
-            this.lblNovoLote = new System.Windows.Forms.Label();
-            this.lstNovosLotes = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpData2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpData1 = new System.Windows.Forms.DateTimePicker();
             this.pnlNovoLote.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
             this.SuspendLayout();
@@ -54,10 +52,8 @@
             // pnlNovoLote
             // 
             this.pnlNovoLote.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlNovoLote.Controls.Add(this.dtpData2);
-            this.pnlNovoLote.Controls.Add(this.dtpData1);
+            this.pnlNovoLote.Controls.Add(this.dtpDataVencimento);
             this.pnlNovoLote.Controls.Add(this.label2);
-            this.pnlNovoLote.Controls.Add(this.label1);
             this.pnlNovoLote.Controls.Add(this.lstNovosLotes);
             this.pnlNovoLote.Controls.Add(this.lblNovoLote);
             this.pnlNovoLote.Controls.Add(this.lblTotal);
@@ -76,6 +72,48 @@
             this.pnlNovoLote.Name = "pnlNovoLote";
             this.pnlNovoLote.Size = new System.Drawing.Size(633, 330);
             this.pnlNovoLote.TabIndex = 1;
+            // 
+            // dtpDataVencimento
+            // 
+            this.dtpDataVencimento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataVencimento.Location = new System.Drawing.Point(168, 227);
+            this.dtpDataVencimento.Name = "dtpDataVencimento";
+            this.dtpDataVencimento.Size = new System.Drawing.Size(104, 22);
+            this.dtpDataVencimento.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(7, 227);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 20);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Data de Vencimento: ";
+            // 
+            // lstNovosLotes
+            // 
+            this.lstNovosLotes.BackColor = System.Drawing.Color.LightCyan;
+            this.lstNovosLotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstNovosLotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lstNovosLotes.FormattingEnabled = true;
+            this.lstNovosLotes.ItemHeight = 20;
+            this.lstNovosLotes.Location = new System.Drawing.Point(287, 39);
+            this.lstNovosLotes.Name = "lstNovosLotes";
+            this.lstNovosLotes.Size = new System.Drawing.Size(335, 204);
+            this.lstNovosLotes.TabIndex = 29;
+            // 
+            // lblNovoLote
+            // 
+            this.lblNovoLote.AutoSize = true;
+            this.lblNovoLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNovoLote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblNovoLote.Location = new System.Drawing.Point(296, 11);
+            this.lblNovoLote.Name = "lblNovoLote";
+            this.lblNovoLote.Size = new System.Drawing.Size(132, 25);
+            this.lblNovoLote.TabIndex = 28;
+            this.lblNovoLote.Text = "Novos Lotes";
             // 
             // lblTotal
             // 
@@ -106,6 +144,7 @@
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.Enabled = false;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.LightCyan;
             this.btnSalvar.Location = new System.Drawing.Point(558, 252);
@@ -114,6 +153,7 @@
             this.btnSalvar.TabIndex = 25;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnAcrescentar
             // 
@@ -122,18 +162,24 @@
             this.btnAcrescentar.Enabled = false;
             this.btnAcrescentar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcrescentar.ForeColor = System.Drawing.Color.LightCyan;
-            this.btnAcrescentar.Location = new System.Drawing.Point(168, 288);
+            this.btnAcrescentar.Location = new System.Drawing.Point(170, 255);
             this.btnAcrescentar.Name = "btnAcrescentar";
             this.btnAcrescentar.Size = new System.Drawing.Size(102, 31);
             this.btnAcrescentar.TabIndex = 24;
             this.btnAcrescentar.Text = "ACRESCENTAR";
             this.btnAcrescentar.UseVisualStyleBackColor = false;
+            this.btnAcrescentar.Click += new System.EventHandler(this.btnAcrescentar_Click);
             // 
             // nudQuantidade
             // 
             this.nudQuantidade.BackColor = System.Drawing.Color.LightCyan;
             this.nudQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudQuantidade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.nudQuantidade.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nudQuantidade.Location = new System.Drawing.Point(104, 193);
             this.nudQuantidade.Name = "nudQuantidade";
             this.nudQuantidade.Size = new System.Drawing.Size(166, 26);
@@ -154,6 +200,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(200, 26);
             this.txtNome.TabIndex = 22;
+            this.txtNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyUp);
             // 
             // txtCodigo
             // 
@@ -165,6 +212,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(199, 26);
             this.txtCodigo.TabIndex = 21;
+            this.txtCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyUp);
             // 
             // lstProdutos
             // 
@@ -222,76 +270,14 @@
             this.lblProduto.TabIndex = 14;
             this.lblProduto.Text = "Produto";
             // 
-            // lblNovoLote
-            // 
-            this.lblNovoLote.AutoSize = true;
-            this.lblNovoLote.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNovoLote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblNovoLote.Location = new System.Drawing.Point(296, 11);
-            this.lblNovoLote.Name = "lblNovoLote";
-            this.lblNovoLote.Size = new System.Drawing.Size(132, 25);
-            this.lblNovoLote.TabIndex = 28;
-            this.lblNovoLote.Text = "Novos Lotes";
-            // 
-            // lstNovosLotes
-            // 
-            this.lstNovosLotes.BackColor = System.Drawing.Color.LightCyan;
-            this.lstNovosLotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstNovosLotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lstNovosLotes.FormattingEnabled = true;
-            this.lstNovosLotes.ItemHeight = 20;
-            this.lstNovosLotes.Location = new System.Drawing.Point(287, 39);
-            this.lstNovosLotes.Name = "lstNovosLotes";
-            this.lstNovosLotes.Size = new System.Drawing.Size(335, 204);
-            this.lstNovosLotes.TabIndex = 29;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(5, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Data da Compra:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(5, 260);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 20);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Data de Vencimento: ";
-            // 
-            // dtpData2
-            // 
-            this.dtpData2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpData2.Location = new System.Drawing.Point(166, 260);
-            this.dtpData2.Name = "dtpData2";
-            this.dtpData2.Size = new System.Drawing.Size(104, 22);
-            this.dtpData2.TabIndex = 33;
-            // 
-            // dtpData1
-            // 
-            this.dtpData1.CalendarForeColor = System.Drawing.Color.PaleTurquoise;
-            this.dtpData1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dtpData1.CalendarTitleForeColor = System.Drawing.Color.PaleTurquoise;
-            this.dtpData1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpData1.Location = new System.Drawing.Point(136, 231);
-            this.dtpData1.Name = "dtpData1";
-            this.dtpData1.Size = new System.Drawing.Size(134, 22);
-            this.dtpData1.TabIndex = 32;
-            // 
             // JanelaNovoLote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 325);
             this.Controls.Add(this.pnlNovoLote);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "JanelaNovoLote";
             this.Text = "Novo Lote";
             this.pnlNovoLote.ResumeLayout(false);
@@ -319,8 +305,6 @@
         private System.Windows.Forms.ListBox lstNovosLotes;
         private System.Windows.Forms.Label lblNovoLote;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpData2;
-        private System.Windows.Forms.DateTimePicker dtpData1;
+        private System.Windows.Forms.DateTimePicker dtpDataVencimento;
     }
 }

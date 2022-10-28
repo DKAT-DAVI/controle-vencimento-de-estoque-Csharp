@@ -9,6 +9,8 @@ namespace ControleVencimento
     internal class Compra
     {
         //Propriedades
+        
+        private static Int64 Serial { get; set; }
         public Int64 Lote { get; set; }
         public Produto Produto { get; set; }
         public Int16 Quantidade { get; set; }
@@ -22,13 +24,29 @@ namespace ControleVencimento
         }
 
         // Construtores
-        public Compra(Int64 lote, Produto produto, Int16 quantidade, DateTime dataCompra, DateTime dataVencimento)
+        static Compra()
         {
-            Lote = lote * 100;
-            Quantidade = quantidade;
-            DataCompra = dataCompra;
-            DataVencimento = dataVencimento;
+            // Pega os dois últimos digitos do ano atual * 100000
+            Serial = Convert.ToInt64(DateTime.Now.Year.ToString().Substring(2)) * 100000;
+        }
+
+        public Compra()
+        {
+            Lote = Serial;
+            Serial++;
+            DataCompra = DateTime.Now;
+        }
+
+        public Compra(Produto produto, Int16 quantidade, DateTime dataVencimento) : this()
+        {
             Produto = produto;
+            Quantidade = quantidade;
+            DataVencimento = dataVencimento;
+        }
+
+        public override string ToString()
+        {
+            return $"{Lote}: {Quantidade} x {Produto} [{Produto.Preco}] = {CalcularTotal()}";
         }
     }
 }

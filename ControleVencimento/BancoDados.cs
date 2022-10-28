@@ -41,15 +41,19 @@ namespace ControleVencimento
             Produtos.Add(p10);
 
             // Lista de Compras
-            Compras.Add(new Compra(11, p1, 200, new DateTime(2022, 09, 30), new DateTime(2022, 12, 31)));
-            Compras.Add(new Compra(25, p3, 50, new DateTime(2022, 05, 20), new DateTime(2022, 11, 05)));
-            Compras.Add(new Compra(32, p5, 20, new DateTime(2022, 10, 02), new DateTime(2022, 11, 25)));
-            Compras.Add(new Compra(14, p7, 30, new DateTime(2022, 05, 30), new DateTime(2023, 01, 30)));
-            Compras.Add(new Compra(22, p9, 100, new DateTime(2022, 09, 30), new DateTime(2022, 12, 15)));
-            Compras.Add(new Compra(90, p2, 150, new DateTime(2022, 08, 31), new DateTime(2022, 10, 27)));
-            Compras.Add(new Compra(55, p4, 80, new DateTime(2022, 07, 30), new DateTime(2022, 10, 31)));            
+            //Compras.Add(new Compra(p1, 200, new DateTime(2022, 09, 30), new DateTime(2022, 12, 31)));
+            //Compras.Add(new Compra(p3, 50, new DateTime(2022, 05, 20), new DateTime(2022, 11, 05)));
+            //Compras.Add(new Compra(p5, 20, new DateTime(2022, 10, 02), new DateTime(2022, 11, 25)));
+            //Compras.Add(new Compra(p7, 30, new DateTime(2022, 05, 30), new DateTime(2023, 01, 30)));
+            //Compras.Add(new Compra(p9, 100, new DateTime(2022, 09, 30), new DateTime(2022, 12, 15)));
+            //Compras.Add(new Compra(p2, 150, new DateTime(2022, 08, 31), new DateTime(2022, 10, 27)));
+            //Compras.Add(new Compra(p4, 80, new DateTime(2022, 07, 30), new DateTime(2022, 10, 31)));            
         }
 
+
+        // Métodos
+        
+        // Filtrar os vencimentos dos lotes
         public static BindingList<Compra> FiltrarVencimento1Dia()
         {
             DateTime dataAtual = DateTime.Now;
@@ -64,6 +68,11 @@ namespace ControleVencimento
             }
 
             return compraFiltrada;
+        }
+
+        public static void AdicionarCompra(Compra compra)
+        {
+            Compras.Add(compra);
         }
 
         public static BindingList<Compra> FiltrarVencimento5Dias()
@@ -96,6 +105,47 @@ namespace ControleVencimento
             }
 
             return compraFiltrada;
+        }
+
+        // Buscar os produtos para um novo lote
+        public static Produto LocalizarProdutoPorCodigo(Int64 codigo)
+        {
+            //Cria uma lista pra receber o produto buscado
+            Produto produto = null;
+
+            //Varre a lista de produtos buscando o código digitado
+            foreach (Produto p in Produtos)
+            {
+                //Verifica se o código passado como parâmetro é IGUAL ao código do produto
+                if (codigo == p.Codigo)
+                {
+                    //Se for igual adiciona na lista
+                    produto = p;
+                }
+            }
+
+            //Retorna a lista
+            return produto;
+        }
+
+        public static List<Produto> LocalizarProdutoPorParteNome(String parte)
+        {
+            //Cria uma lista para armazenar os produtos buscados
+            List<Produto> lista = new List<Produto>();
+
+            //Varre a lista de Produtos existentes no BancoDadosSimulado
+            foreach (Produto produto in Produtos)
+            {
+                //Verifica se a string buscada faz parte do nome de algum produto
+                if (produto.Nome.ToLower().Contains(parte.ToLower()))
+                {
+                    //Adiciona na lista de produtos
+                    lista.Add(produto);
+                }
+            }
+
+            //Retorna a lista com os elementos selecionados
+            return lista;
         }
     }
 }

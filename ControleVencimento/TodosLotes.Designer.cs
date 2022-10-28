@@ -58,10 +58,13 @@
             // 
             // dgvTodosLotes
             // 
+            this.dgvTodosLotes.AllowUserToAddRows = false;
+            this.dgvTodosLotes.AllowUserToDeleteRows = false;
             this.dgvTodosLotes.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dgvTodosLotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTodosLotes.Location = new System.Drawing.Point(13, 59);
             this.dgvTodosLotes.Name = "dgvTodosLotes";
+            this.dgvTodosLotes.ReadOnly = true;
             this.dgvTodosLotes.Size = new System.Drawing.Size(544, 222);
             this.dgvTodosLotes.TabIndex = 0;
             // 

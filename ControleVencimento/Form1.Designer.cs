@@ -100,7 +100,7 @@
             this.mnuCadastroNovoLote.BackColor = System.Drawing.Color.PowderBlue;
             this.mnuCadastroNovoLote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuCadastroNovoLote.Name = "mnuCadastroNovoLote";
-            this.mnuCadastroNovoLote.Size = new System.Drawing.Size(180, 24);
+            this.mnuCadastroNovoLote.Size = new System.Drawing.Size(145, 24);
             this.mnuCadastroNovoLote.Text = "Novo lote";
             this.mnuCadastroNovoLote.Click += new System.EventHandler(this.mnuCadastroNovoLote_Click);
             // 
@@ -159,7 +159,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
