@@ -27,14 +27,19 @@ namespace ControleVencimento
         static Compra()
         {
             // Pega os dois últimos digitos do ano atual * 100000
-            Serial = Convert.ToInt64(DateTime.Now.Year.ToString().Substring(2)) * 100000;
+            Serial = Convert.ToInt64(DateTime.Now.Year.ToString().Substring(2)) * 1000;
         }
 
         public Compra()
         {
+            // Atribuição do Serial ao Lote
             Lote = Serial;
+
+            // Incrementação de +1 ao Serial
             Serial++;
-            DataCompra = DateTime.Now;
+
+            // Atribuição da data atual a DataCompra
+            DataCompra = DateTime.Now.Date;
         }
 
         public Compra(Produto produto, Int16 quantidade, DateTime dataVencimento) : this()
@@ -46,7 +51,7 @@ namespace ControleVencimento
 
         public override string ToString()
         {
-            return $"{Lote}: {Quantidade} x {Produto} [{Produto.Preco}] = {CalcularTotal()}";
+            return $"{Lote}: {Quantidade} x {Produto} [R${Produto.Preco}] = R${CalcularTotal()}";
         }
     }
 }
