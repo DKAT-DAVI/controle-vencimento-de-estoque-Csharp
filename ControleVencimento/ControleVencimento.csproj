@@ -60,6 +60,12 @@
     <Compile Include="JanelaNovoLote.Designer.cs">
       <DependentUpon>JanelaNovoLote.cs</DependentUpon>
     </Compile>
+    <Compile Include="JanelaSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JanelaSobre.Designer.cs">
+      <DependentUpon>JanelaSobre.cs</DependentUpon>
+    </Compile>
     <Compile Include="JanelaVencer1Dia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <EmbeddedResource Include="JanelaNovoLote.resx">
       <DependentUpon>JanelaNovoLote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JanelaSobre.resx">
+      <DependentUpon>JanelaSobre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JanelaVencer1Dia.resx">
       <DependentUpon>JanelaVencer1Dia.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +122,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,6 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\img-profile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\reload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

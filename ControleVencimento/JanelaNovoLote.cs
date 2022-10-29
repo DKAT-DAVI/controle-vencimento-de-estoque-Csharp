@@ -97,9 +97,8 @@ namespace ControleVencimento
             else
             { 
                 // Cria a compra principal que vai receber os valores transportados da compraAuxiliar
-                Compra compra = new Compra((Produto)lstProdutos.SelectedItem, Convert.ToInt16(nudQuantidade.Value), dtpDataVencimento.Value);
+                Compra compra = new Compra((Produto)lstProdutos.SelectedItem, Convert.ToInt16(nudQuantidade.Value), dtpDataVencimento.Value.Date);
                 lstNovosLotes.Items.Add(compra);
-                HabilitarBotaoSalvar();
 
                 // Resetar a GUI para Acrescentar um novo lote
                 txtCodigo.Text = null;
@@ -120,18 +119,19 @@ namespace ControleVencimento
         // Botão de salvar os novos lotes de compras
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-                // Verificar a habilitação do botão
-                HabilitarBotaoAcrescentar();
+            // Verificar a habilitação do botão
+            HabilitarBotaoAcrescentar();
 
-                // Para cada lote de compra que estiver em lstNovosLotes
-                foreach (Compra compra in lstNovosLotes.Items)
-                {
-                    // Adicione na lista de lotes do Banco de Dados
-                    BancoDados.AdicionarCompra(compra);
-                }
+            // Para cada lote de compra que estiver em lstNovosLotes
+            foreach (Compra compra in lstNovosLotes.Items)
+            {
+                // Adicione na lista de lotes do Banco de Dados
+                BancoDados.AdicionarCompra(compra);
+            }
 
-                // Resetar a GUI para inserir novos lotes
-                lstNovosLotes.Items.Clear();    
+            // Resetar a GUI para inserir novos lotes
+            lstNovosLotes.Items.Clear();
+
         }
 
         // Opção de excluir um lote antes de finalizar a compra 
@@ -141,7 +141,6 @@ namespace ControleVencimento
         {
             lstNovosLotes.Items.Remove(lstNovosLotes.SelectedItem);
             HabilitarBotaoAcrescentar();
-            HabilitarBotaoSalvar();
         }
 
         // DoubleClick no lote selecionado
@@ -149,12 +148,10 @@ namespace ControleVencimento
         {
             lstNovosLotes.Items.Remove(lstNovosLotes.SelectedItem);
             HabilitarBotaoAcrescentar();
-            HabilitarBotaoSalvar();
         }
 
         private void lstNovosLotes_MouseUp(object sender, MouseEventArgs e)
         {
-            HabilitarBotaoSalvar();
             if (e.Button == MouseButtons.Right
                 && lstNovosLotes.Items.Count > 0)
             {
@@ -176,20 +173,6 @@ namespace ControleVencimento
             else
             {
                 btnAcrescentar.Enabled = false;
-            }
-        }
-
-        // btnSalvar
-        private void HabilitarBotaoSalvar()
-        {
-            // Se a lista de novos lotes estiver vazia, o botão salvar fica desabilitado
-            if (lstNovosLotes.Items.Count > 0)
-            {
-                btnSalvar.Enabled = true;
-            }
-            else
-            {
-                btnSalvar.Enabled = false;
             }
         }
     }

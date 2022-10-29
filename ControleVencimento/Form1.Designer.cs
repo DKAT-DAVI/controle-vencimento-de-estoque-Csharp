@@ -73,15 +73,16 @@
             this.mnuArquivoSobre.BackColor = System.Drawing.Color.PowderBlue;
             this.mnuArquivoSobre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuArquivoSobre.Name = "mnuArquivoSobre";
-            this.mnuArquivoSobre.Size = new System.Drawing.Size(118, 24);
+            this.mnuArquivoSobre.Size = new System.Drawing.Size(180, 24);
             this.mnuArquivoSobre.Text = "Sobre";
+            this.mnuArquivoSobre.Click += new System.EventHandler(this.mnuArquivoSobre_Click);
             // 
             // mnuArquivoSair
             // 
             this.mnuArquivoSair.BackColor = System.Drawing.Color.PowderBlue;
             this.mnuArquivoSair.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mnuArquivoSair.Name = "mnuArquivoSair";
-            this.mnuArquivoSair.Size = new System.Drawing.Size(118, 24);
+            this.mnuArquivoSair.Size = new System.Drawing.Size(180, 24);
             this.mnuArquivoSair.Text = "Sair";
             this.mnuArquivoSair.Click += new System.EventHandler(this.mnuArquivoSair_Click);
             // 

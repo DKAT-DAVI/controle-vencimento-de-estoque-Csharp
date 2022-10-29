@@ -42,3 +42,4 @@ C:\Users\Aluno\Desktop\controle-vencimento-de-estoque-Csharp-main\ControleVencim
 C:\Users\Aluno\Desktop\controle-vencimento-de-estoque-Csharp-main\ControleVencimento\obj\Debug\ControleVencimento.csproj.CoreCompileInputs.cache
 C:\Users\Aluno\Desktop\controle-vencimento-de-estoque-Csharp-main\ControleVencimento\obj\Debug\ControleVencimento.exe
 C:\Users\Aluno\Desktop\controle-vencimento-de-estoque-Csharp-main\ControleVencimento\obj\Debug\ControleVencimento.pdb
+G:\WINDOWS\Repositorys\controle-vencimento-de-estoque-Csharp\ControleVencimento\obj\Debug\ControleVencimento.JanelaSobre.resources

@@ -35,13 +35,16 @@
             this.lblData1 = new System.Windows.Forms.Label();
             this.lblVencerPersonalizado = new System.Windows.Forms.Label();
             this.dgvVencerPersonalizado = new System.Windows.Forms.DataGridView();
+            this.imgReload = new System.Windows.Forms.PictureBox();
             this.pnlVencerPersonalizado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVencerPersonalizado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgReload)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlVencerPersonalizado
             // 
             this.pnlVencerPersonalizado.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.pnlVencerPersonalizado.Controls.Add(this.imgReload);
             this.pnlVencerPersonalizado.Controls.Add(this.dtpData2);
             this.pnlVencerPersonalizado.Controls.Add(this.dtpData1);
             this.pnlVencerPersonalizado.Controls.Add(this.lblData2);
@@ -110,12 +113,26 @@
             // 
             // dgvVencerPersonalizado
             // 
+            this.dgvVencerPersonalizado.AllowUserToAddRows = false;
+            this.dgvVencerPersonalizado.AllowUserToDeleteRows = false;
             this.dgvVencerPersonalizado.BackgroundColor = System.Drawing.Color.LightCyan;
             this.dgvVencerPersonalizado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVencerPersonalizado.Location = new System.Drawing.Point(14, 123);
             this.dgvVencerPersonalizado.Name = "dgvVencerPersonalizado";
+            this.dgvVencerPersonalizado.ReadOnly = true;
             this.dgvVencerPersonalizado.Size = new System.Drawing.Size(544, 171);
             this.dgvVencerPersonalizado.TabIndex = 0;
+            // 
+            // imgReload
+            // 
+            this.imgReload.Image = global::ControleVencimento.Properties.Resources.reload;
+            this.imgReload.Location = new System.Drawing.Point(14, 18);
+            this.imgReload.Name = "imgReload";
+            this.imgReload.Size = new System.Drawing.Size(34, 28);
+            this.imgReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgReload.TabIndex = 3;
+            this.imgReload.TabStop = false;
+            this.imgReload.Click += new System.EventHandler(this.imgReload_Click);
             // 
             // JanelaVencimentoPersonalizado
             // 
@@ -128,6 +145,7 @@
             this.pnlVencerPersonalizado.ResumeLayout(false);
             this.pnlVencerPersonalizado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVencerPersonalizado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgReload)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -141,5 +159,6 @@
         private System.Windows.Forms.Label lblData1;
         private System.Windows.Forms.DateTimePicker dtpData2;
         private System.Windows.Forms.DateTimePicker dtpData1;
+        private System.Windows.Forms.PictureBox imgReload;
     }
 }

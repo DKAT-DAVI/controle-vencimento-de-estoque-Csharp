@@ -9,13 +9,18 @@ namespace ControleVencimento
     internal class Compra
     {
         //Propriedades
-        
+
         private static Int64 Serial { get; set; }
         public Int64 Lote { get; set; }
         public Produto Produto { get; set; }
         public Int16 Quantidade { get; set; }
         public DateTime DataCompra { get; set; }
         public DateTime DataVencimento { get; set; }
+        public Decimal Total 
+        { 
+            get { return CalcularTotal(); }
+        }
+        
 
         // Métodos
         public Decimal CalcularTotal()
@@ -40,6 +45,7 @@ namespace ControleVencimento
 
             // Atribuição da data atual a DataCompra
             DataCompra = DateTime.Now.Date;
+
         }
 
         public Compra(Produto produto, Int16 quantidade, DateTime dataVencimento) : this()
@@ -49,6 +55,7 @@ namespace ControleVencimento
             DataVencimento = dataVencimento;
         }
 
+        // ToString
         public override string ToString()
         {
             return $"{Lote}: {Quantidade} x {Produto} [R${Produto.Preco}] = R${CalcularTotal()}";

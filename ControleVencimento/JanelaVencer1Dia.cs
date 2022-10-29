@@ -17,7 +17,8 @@ namespace ControleVencimento
         {
             InitializeComponent();
 
-            dgvVencer1Dias.DataSource = BancoDados.FiltrarVencimento1Dia();
+            dgvVencer1Dia.DataSource = BancoDados.FiltrarVencimento(1);
+            BancoDados.ConfigurarDataGridView(dgvVencer1Dia);
         }
         
         public static JanelaVencer1Dia GetInstance()
@@ -30,6 +31,9 @@ namespace ControleVencimento
             return instance; 
         }
 
-        
+        private void imgReload_Click(object sender, EventArgs e)
+        {
+            dgvVencer1Dia.DataSource = BancoDados.FiltrarVencimento(1);
+        }
     }
 }

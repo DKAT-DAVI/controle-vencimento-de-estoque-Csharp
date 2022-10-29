@@ -12,30 +12,27 @@ namespace ControleVencimento
 {
     public partial class JanelaVencimentoPersonalizado : Form
     {
-        private static JanelaVencimentoPersonalizado instance;
-        private JanelaVencimentoPersonalizado()
+        public JanelaVencimentoPersonalizado()
         {
             InitializeComponent();
         }
 
-        public static JanelaVencimentoPersonalizado GetInstance()
-        {
-            if (instance == null || instance.IsDisposed)
-            {
-                instance = new JanelaVencimentoPersonalizado();
-            }
-
-            return instance;
-        }
-
+        // A cada vez que a data é atualizada, o DataSource do DataGridView tbm é atualizado passando pela filtragem
         private void dtpData1_ValueChanged(object sender, EventArgs e)
         {
-            dgvVencerPersonalizado.DataSource = BancoDados.FiltrarVencimentoPersonalizado(dtpData1.Value, dtpData2.Value);
+            dgvVencerPersonalizado.DataSource = BancoDados.FiltrarVencimentoPersonalizado(dtpData1.Value.Date, dtpData2.Value.Date);
+            BancoDados.ConfigurarDataGridView(dgvVencerPersonalizado);
         }
 
         private void dtpData2_ValueChanged(object sender, EventArgs e)
         {
-            dgvVencerPersonalizado.DataSource = BancoDados.FiltrarVencimentoPersonalizado(dtpData1.Value, dtpData2.Value);
+            dgvVencerPersonalizado.DataSource = BancoDados.FiltrarVencimentoPersonalizado(dtpData1.Value.Date, dtpData2.Value.Date);
+            BancoDados.ConfigurarDataGridView(dgvVencerPersonalizado);
+        }
+
+        private void imgReload_Click(object sender, EventArgs e)
+        {
+            dgvVencerPersonalizado.DataSource = BancoDados.FiltrarVencimentoPersonalizado(dtpData1.Value.Date, dtpData2.Value.Date);
         }
     }
 }

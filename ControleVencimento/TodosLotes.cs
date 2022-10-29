@@ -12,15 +12,20 @@ namespace ControleVencimento
 {
     public partial class TodosLotes : Form
     {
+        // Variável Singleton
         public static TodosLotes instance;
 
         private TodosLotes()
         {
             InitializeComponent();
 
+            // Ligando o DataSource ao Banco de Dados
             dgvTodosLotes.DataSource = BancoDados.Compras;
+
+            BancoDados.ConfigurarDataGridView(dgvTodosLotes);
         }
 
+        // Método get para chamar a janela
         public static TodosLotes GetInstance()
         {
             if (instance == null || instance.IsDisposed)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace ControleVencimento
 {
@@ -38,59 +39,39 @@ namespace ControleVencimento
             Produtos.Add(p7);
             Produtos.Add(p8);
             Produtos.Add(p9);
-            Produtos.Add(p10);
-
-            // Lista de Compras
-            //Compras.Add(new Compra(p1, 200, new DateTime(2022, 09, 30), new DateTime(2022, 12, 31)));
-            //Compras.Add(new Compra(p3, 50, new DateTime(2022, 05, 20), new DateTime(2022, 11, 05)));
-            //Compras.Add(new Compra(p5, 20, new DateTime(2022, 10, 02), new DateTime(2022, 11, 25)));
-            //Compras.Add(new Compra(p7, 30, new DateTime(2022, 05, 30), new DateTime(2023, 01, 30)));
-            //Compras.Add(new Compra(p9, 100, new DateTime(2022, 09, 30), new DateTime(2022, 12, 15)));
-            //Compras.Add(new Compra(p2, 150, new DateTime(2022, 08, 31), new DateTime(2022, 10, 27)));
-            //Compras.Add(new Compra(p4, 80, new DateTime(2022, 07, 30), new DateTime(2022, 10, 31)));            
+            Produtos.Add(p10);            
         }
 
 
         // Métodos
-        
-        // Filtrar os vencimentos dos lotes
-        public static BindingList<Compra> FiltrarVencimento1Dia()
-        {
-            DateTime dataAtual = DateTime.Now;
-            BindingList<Compra> compraFiltrada = new BindingList<Compra>();
 
-            foreach (Compra compra in Compras)
-            {
-                if ((compra.DataVencimento - dataAtual).Days + 1 <= 1)
-                {
-                    compraFiltrada.Add(compra);
-                }
-            }
-
-            return compraFiltrada;
-        }
-
+        // Adicionar compra na lista de novos lotes
         public static void AdicionarCompra(Compra compra)
         {
             Compras.Add(compra);
         }
 
-        public static BindingList<Compra> FiltrarVencimento5Dias()
+        // Filtrar os vencimentos dos lotes
+
+        // Filtrar o vencimento em um número específico de dias
+        public static BindingList<Compra> FiltrarVencimento(Int16 intervaloDeDias)
         {
-            DateTime dataAtual = DateTime.Now;
-            BindingList<Compra> compraFiltrada = new BindingList<Compra>();
+            BindingList<Compra> listaFiltrada = new BindingList<Compra>();
+            DateTime dataAtual = DateTime.Now.Date;
 
             foreach (Compra compra in Compras)
             {
-                if (((compra.DataVencimento - dataAtual).Days + 1) <= 5)
+                if ((compra.DataVencimento - dataAtual).Days <= intervaloDeDias)
                 {
-                    compraFiltrada.Add(compra);
+                    listaFiltrada.Add(compra);
                 }
             }
 
-            return compraFiltrada;
+            return listaFiltrada;
         }
 
+
+        // Filtrar vencimento em um intervalo de duas datas
         public static BindingList<Compra> FiltrarVencimentoPersonalizado(DateTime data1, DateTime data2)
         {
             DateTime dataAtual = DateTime.Now;
@@ -98,7 +79,7 @@ namespace ControleVencimento
 
             foreach (Compra compra in Compras)
             {
-                if (compra.DataVencimento >= data1 && compra.DataVencimento <= data2 )
+                if (compra.DataVencimento >= data1 && compra.DataVencimento <= data2)
                 {
                     compraFiltrada.Add(compra);
                 }
@@ -146,6 +127,15 @@ namespace ControleVencimento
 
             //Retorna a lista com os elementos selecionados
             return lista;
+        }
+
+        // Configurar o DataGridView
+        public static void ConfigurarDataGridView(DataGridView dataGridView)
+        {
+            dataGridView.Columns[3].Visible = false;
+            dataGridView.Columns[2].HeaderText = "Qtde";
+            dataGridView.Columns[4].HeaderText = "Vencimento";
+            dataGridView.Columns[5].HeaderText = "Total (R$)";
         }
     }
 }

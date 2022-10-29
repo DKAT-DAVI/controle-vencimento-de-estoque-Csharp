@@ -44,6 +44,7 @@ namespace ControleVencimento
             Preco = preco;
         }
 
+        // ToString
         public override string ToString()
         {
             return Nome;
