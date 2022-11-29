@@ -46,7 +46,7 @@
 
 <h2>&#X1F4C1 Acesso ao projeto</h2>
 
-<p>Acesse o <a href="https://github.com/DKAT-DAVI/controle-vencimento-de-estoque-Csharp">repositório do projeto</a> e faça download do repositório, seja via <a href="https://github.com/DKAT-DAVI/controle-vencimento-de-estoque-Csharp/archive/refs/heads/main.zip">arquivo.zip</a> ou fazendo um git clone do repositório na sua máquina.<p>
+<p>Acesse o <a href="https://github.com/DKAT-DAVI/controle-vencimento-de-estoque-Csharp">repositório do projeto</a> e faça download do repositório, seja via <a href="https://github.com/DKAT-DAVI/controle-vencimento-de-estoque-Csharp/archive/refs/heads/main.zip">arquivo.zip</a> ou fazendo um git clone do repositório na sua máquinae compile o programa usando o <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio</a>.<p>
 
 <h2>&#X2714 Técnicas e Tecnologias utilizadas</h2>
 <ul>
